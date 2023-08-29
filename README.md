@@ -1,10 +1,22 @@
 ## MSK kafka-go 生产消费测试
 
+### Install Go on Amazon Linux2
+```
+sudo yum update
+sudo yum install -y golang
+echo 'export GOPATH=$HOME/go' >> ~/.zshrc
+echo 'export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin' >> ~/.zshrc
+source ~/.zshrc
+
+go version
+```
+
 ### build
 ```shell
+go mod tidy
 GOOS=linux GOARCH=amd64 go build msk.go
 # 编译好的
-wget https://dxs9dnjebzm6y.cloudfront.net/tmp/msk-amd64
+# wget https://dxs9dnjebzm6y.cloudfront.net/tmp/msk-amd64
 mv msk-amd64 msk
 chmod u+x msk
 ```
